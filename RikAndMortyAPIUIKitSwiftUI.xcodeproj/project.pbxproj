@@ -13,6 +13,7 @@
 		4DBA52B82A8E746500080EEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBA52B62A8E746500080EEC /* Main.storyboard */; };
 		4DBA52BA2A8E746500080EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DBA52B92A8E746500080EEC /* Assets.xcassets */; };
 		4DBA52BD2A8E746500080EEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DBA52BB2A8E746500080EEC /* LaunchScreen.storyboard */; };
+		4DBA52C62A8E804300080EEC /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA52C52A8E804300080EEC /* DetailsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4DBA52B92A8E746500080EEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DBA52BC2A8E746500080EEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DBA52BE2A8E746500080EEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DBA52C52A8E804300080EEC /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +61,21 @@
 				4DBA52B02A8E746500080EEC /* AppDelegate.swift */,
 				4DBA52B22A8E746500080EEC /* SceneDelegate.swift */,
 				4DBA52B42A8E746500080EEC /* ViewController.swift */,
+				4DBA52C42A8E800000080EEC /* SwiftUI */,
 				4DBA52B62A8E746500080EEC /* Main.storyboard */,
 				4DBA52B92A8E746500080EEC /* Assets.xcassets */,
 				4DBA52BB2A8E746500080EEC /* LaunchScreen.storyboard */,
 				4DBA52BE2A8E746500080EEC /* Info.plist */,
 			);
 			path = RikAndMortyAPIUIKitSwiftUI;
+			sourceTree = "<group>";
+		};
+		4DBA52C42A8E800000080EEC /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				4DBA52C52A8E804300080EEC /* DetailsScreen.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBA52C62A8E804300080EEC /* DetailsScreen.swift in Sources */,
 				4DBA52B52A8E746500080EEC /* ViewController.swift in Sources */,
 				4DBA52B12A8E746500080EEC /* AppDelegate.swift in Sources */,
 				4DBA52B32A8E746500080EEC /* SceneDelegate.swift in Sources */,
