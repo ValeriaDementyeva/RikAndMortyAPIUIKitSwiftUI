@@ -40,19 +40,22 @@ struct DetailScreenInfo: View {
                                 .cornerRadius(20)
                                 .frame(height: 120)
                                 .foregroundColor(Color(red: 0.15, green: 0.165, blue: 0.22))
-                            VStack(){
+                            VStack(spacing: 16){
                                 ForEach(ModelDetail.info, id:\.id) { item in
-                                    LazyHStack(){
+                                    HStack(){
                                         Text(item.name)
                                             .foregroundColor(Color(red: 0.769, green: 0.789, blue: 0.806))
                                             .font(.system(size: 16))
-                                        
+
+                                        Spacer()
+
                                         Text(item.region)
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
                                     }
                                 }
                             }
+                            .padding()
                         }
                     }
                     Section(header: Text("Origin").font(.title3).foregroundColor(.white)) {
@@ -61,7 +64,7 @@ struct DetailScreenInfo: View {
                                 .cornerRadius(20)
                                 .frame(height: 80)
                                 .foregroundColor(Color(red: 0.149, green: 0.165, blue: 0.22))
-                            LazyHStack(){
+                            HStack(){
                                 ZStack(){
                                     Rectangle()
                                         .cornerRadius(20)
@@ -70,13 +73,14 @@ struct DetailScreenInfo: View {
                                     Image("Planet")
                                         .frame(width: 24, height: 24)
                                 }
-                                VStack(){
+                                VStack(spacing: 8){
                                     Text("Earth")
                                         .foregroundColor(Color(red: 0.769, green: 0.789, blue: 0.806))
                                     Text("Planet")
                                         .foregroundColor(.green)
                                 }
-                            }
+                            }.frame(maxWidth: .infinity, alignment: .leading)
+                                .padding()
                         }
                     }
                     Section(header: Text("Episodes").font(.title3).foregroundColor(.white)) {
@@ -86,19 +90,22 @@ struct DetailScreenInfo: View {
                                     .cornerRadius(20)
                                     .frame(height: 86)
                                     .foregroundColor(Color(red: 0.149, green: 0.165, blue: 0.22))
-                                LazyVStack(){
+                                LazyVStack(spacing: 16){
                                     Text(item.name)
                                         .foregroundColor(.white)
                                         .font(.system(size: 17))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     HStack(){
                                         Text(item.region)
                                             .foregroundColor(.green)
                                             .font(.system(size: 13))
+                                        Spacer()
                                         Text(item.name)
                                             .foregroundColor(Color(red: 0.769, green: 0.789, blue: 0.806))
                                             .font(.system(size: 12))
                                     }
                                 }
+                                .padding()
                             }
                         }
                     }
