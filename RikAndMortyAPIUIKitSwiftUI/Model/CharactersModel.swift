@@ -14,13 +14,13 @@ struct CharactersModel: Hashable {
 
 extension CharactersModel {
     static let info = [
-        CharactersModel(image: "Pick", mane: "Rick Sanchaz"),
-        CharactersModel(image: "Pick", mane: "KJKJKJK"),
-        CharactersModel(image: "Pick", mane: "QQQQQQQQ"),
-        CharactersModel(image: "Pick", mane: "TTTTTTTTTT"),
-        CharactersModel(image: "Pick", mane: "IIIIIIOOOG hk"),
-        CharactersModel(image: "Pick", mane: "VHGHF FGf"),
-        CharactersModel(image: "Pick", mane: "kjfoift fh"),
-        CharactersModel(image: "Pick", mane: "jfn jfh sl"),
+        CharactersModel(image: "Rick", mane: "Rick Sanchaz"),
+        CharactersModel(image: "Rick", mane: "KJKJKJK"),
+        CharactersModel(image: "Rick", mane: "QQQQQQQQ"),
+        CharactersModel(image: "Rick", mane: "TTTTTTTTTT"),
+        CharactersModel(image: "Rick", mane: "IIIIIIOOOG hk"),
+        CharactersModel(image: "Rick", mane: "VHGHF FGf"),
+        CharactersModel(image: "Rick", mane: "kjfoift fh"),
+        CharactersModel(image: "Rick", mane: "jfn jfh sl"),
     ]
 }

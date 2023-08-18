@@ -15,8 +15,9 @@ class CollectionCharactersCell: UICollectionViewCell {
     //MARK: - Properties
     lazy var image: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
-        image.layer.cornerRadius = 10
+        image.contentMode = .scaleAspectFill
+        image.backgroundColor = .red
+        image.layer.cornerRadius = 15
         image.clipsToBounds = true
         return image
     }()
@@ -24,7 +25,7 @@ class CollectionCharactersCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.tintColor = .white
+        label.textColor = .white
         return label
     }()
 
@@ -56,10 +57,20 @@ class CollectionCharactersCell: UICollectionViewCell {
 
     //MARK: - Layout
     private func setupLayout() {
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        image.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        image.topAnchor.constraint(equalTo: topAnchor,constant: 8).isActive = true
+        image.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8).isActive = true
+        image.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8).isActive = true
+        image.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -54).isActive = true
+
+
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.topAnchor.constraint(equalTo: topAnchor,constant: 5).isActive = true
         stack.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 5).isActive = true
         stack.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -5).isActive = true
         stack.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -5).isActive = true
+
     }
 }//finish class

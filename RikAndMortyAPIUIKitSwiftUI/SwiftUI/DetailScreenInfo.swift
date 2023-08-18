@@ -8,9 +8,10 @@ import Foundation
 import SwiftUI
 
 struct DetailScreenInfo: View {
+    @ObservedObject var dataModel = ObserveModelDetail()
+    let columns = [GridItem(.flexible())]
+    
     var body: some View {
-        
-        let columns = [GridItem(.flexible())]
         
         ScrollView(.vertical) {
             LazyVStack(alignment: .center) {
@@ -20,7 +21,7 @@ struct DetailScreenInfo: View {
                     .frame(width: 148, height: 148)
                     .cornerRadius(10)
                 Spacer(minLength: 24)
-
+                
                 Text("Rick Sanchez")
                     .font(.title3)
                     .fontWeight(.bold)
@@ -29,7 +30,7 @@ struct DetailScreenInfo: View {
                     .lineLimit(1)
                     .padding(.horizontal)
                 Spacer(minLength: 8)
-
+                
                 Text("Alive")
                     .font(.system(size: 16))
                     .foregroundColor(.green)
@@ -37,7 +38,7 @@ struct DetailScreenInfo: View {
                     .lineLimit(1)
                     .padding(.horizontal)
                 Spacer(minLength: 24)
-
+                
                 
                 LazyVGrid(columns: columns, alignment: .leading) {
                     Section(header: Text("Info").font(.title3).foregroundColor(.white)) {
@@ -52,9 +53,9 @@ struct DetailScreenInfo: View {
                                         Text(item.name)
                                             .foregroundColor(Color(red: 0.769, green: 0.789, blue: 0.806))
                                             .font(.system(size: 16))
-
+                                        
                                         Spacer()
-
+                                        
                                         Text(item.region)
                                             .foregroundColor(.white)
                                             .font(.system(size: 16))
