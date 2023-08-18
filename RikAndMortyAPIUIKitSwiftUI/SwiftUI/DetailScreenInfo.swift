@@ -13,12 +13,14 @@ struct DetailScreenInfo: View {
         let columns = [GridItem(.flexible())]
         
         ScrollView(.vertical) {
-            LazyVStack(alignment: .center, spacing: 20) {
-                Spacer(minLength: 20)
+            LazyVStack(alignment: .center) {
+                Spacer(minLength: 16)
                 Image("Rick")
                     .padding(.horizontal, 81.0)
                     .frame(width: 148, height: 148)
                     .cornerRadius(10)
+                Spacer(minLength: 24)
+
                 Text("Rick Sanchez")
                     .font(.title3)
                     .fontWeight(.bold)
@@ -26,18 +28,22 @@ struct DetailScreenInfo: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
                     .padding(.horizontal)
+                Spacer(minLength: 8)
+
                 Text("Alive")
                     .font(.system(size: 16))
                     .foregroundColor(.green)
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
                     .padding(.horizontal)
+                Spacer(minLength: 24)
+
                 
-                LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
+                LazyVGrid(columns: columns, alignment: .leading) {
                     Section(header: Text("Info").font(.title3).foregroundColor(.white)) {
                         ZStack(){
                             Rectangle()
-                                .cornerRadius(20)
+                                .cornerRadius(15)
                                 .frame(height: 120)
                                 .foregroundColor(Color(red: 0.15, green: 0.165, blue: 0.22))
                             VStack(spacing: 16){
@@ -61,7 +67,7 @@ struct DetailScreenInfo: View {
                     Section(header: Text("Origin").font(.title3).foregroundColor(.white)) {
                         ZStack(){
                             Rectangle()
-                                .cornerRadius(20)
+                                .cornerRadius(15)
                                 .frame(height: 80)
                                 .foregroundColor(Color(red: 0.149, green: 0.165, blue: 0.22))
                             HStack(){
@@ -87,7 +93,7 @@ struct DetailScreenInfo: View {
                         ForEach(ModelDetail.info, id:\.id) { item in
                             ZStack(){
                                 Rectangle()
-                                    .cornerRadius(20)
+                                    .cornerRadius(15)
                                     .frame(height: 86)
                                     .foregroundColor(Color(red: 0.149, green: 0.165, blue: 0.22))
                                 LazyVStack(spacing: 16){
