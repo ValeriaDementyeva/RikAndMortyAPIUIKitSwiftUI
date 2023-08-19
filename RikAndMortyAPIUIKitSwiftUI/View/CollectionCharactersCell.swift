@@ -16,7 +16,6 @@ class CollectionCharactersCell: UICollectionViewCell {
     lazy var image: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.backgroundColor = .red
         image.layer.cornerRadius = 15
         image.clipsToBounds = true
         return image
@@ -36,6 +35,8 @@ class CollectionCharactersCell: UICollectionViewCell {
         stack.distribution = .fill
         return stack
     }()
+
+
 
     //MARK: - Initializers
     override init(frame: CGRect) {

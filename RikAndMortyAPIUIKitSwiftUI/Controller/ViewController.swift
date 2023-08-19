@@ -9,7 +9,10 @@ import UIKit
 import SwiftUI
 
 class ViewController: UIViewController {
-    
+
+
+
+
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.delegate = self
@@ -24,8 +27,27 @@ class ViewController: UIViewController {
         settingsNavigation()
         setupHierarchy()
         setupLayout()
+
+//        APIManager.shared.getCharacters { [weak self] characters in
+//                  DispatchQueue.main.async {
+//                      self?.characters = characters
+//                      self?.collectionView.reloadData()
+//                  }
+//              }
+        APIManager.shared.getCharacters { characters in
+            DispatchQueue.main.async {
+                // Здесь вы можете использовать массив characters
+                self.characters = characters
+                self.collectionView.reloadData()
+                for character in characters {
+                    print("Character name: \(character.name)")
+                    print("Character name: \(character.image)")
+                }
+            }
+        }
     }
-    
+    private var characters: [CharactersModelElement] = []
+
     private func settingsNavigation() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -38,7 +60,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
     }
-    
+
     private func setupHierarchy() {
         view.addSubview(collectionView)
     }
@@ -52,49 +74,63 @@ class ViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    private func createLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout { sectionIndex, _ in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.75))
-            
-            let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
-            
-            let groupSize = NSCollectionLayoutSize( widthDimension: .fractionalWidth(1), heightDimension: .estimated(300))
-            
-            let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
-            
-            let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-            layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 10, bottom: 10, trailing: 10)
-            
-            return layoutSection
+
+
+        private func createLayout() -> UICollectionViewCompositionalLayout {
+            return UICollectionViewCompositionalLayout { sectionIndex, _ in
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.75))
+
+                let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+
+                let groupSize = NSCollectionLayoutSize( widthDimension: .fractionalWidth(1), heightDimension: .estimated(300))
+
+                let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [layoutItem])
+
+                let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+                layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 10, bottom: 10, trailing: 10)
+
+                return layoutSection
+            }
         }
     }
-}
+
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCharactersCell.identifier, for: indexPath) as! CollectionCharactersCell
         cell.backgroundColor = UIColor(red: 0.149, green: 0.165, blue: 0.22, alpha: 1)
         cell.layer.cornerRadius = 15
-        
-        let character = CharactersModel.info[indexPath.item]
-        cell.image.image = UIImage(named: character.image)
-        cell.nameLabel.text = character.mane
-        
-        return cell
+
+        let character = characters[indexPath.item] // Получаем данные конкретного персонажа
+             cell.nameLabel.text = character.name // Предположим, что у вашей ячейки есть UILabel для отображения имени
+
+        if let imageURL = URL(string: character.image) {
+            DispatchQueue.global().async {
+                if let imageData = try? Data(contentsOf: imageURL) {
+                    DispatchQueue.main.async {
+                        cell.image.image = UIImage(data: imageData)
+                    }
+                }
+            }
+        }
+
+             return cell
+
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CharactersModel.info.count
+        return characters.count
     }
-    
-    
+
+
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailScreenInfoController = DetailScreenInfoController()
-        
+
         let hostingController = UIHostingController(rootView: detailScreenInfoController)
-        
+
         navigationController?.pushViewController(hostingController, animated: true)
     }
 }
+

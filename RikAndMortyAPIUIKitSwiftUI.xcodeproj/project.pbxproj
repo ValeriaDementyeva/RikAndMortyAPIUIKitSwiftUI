@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1459D92A9114D800383BDE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1459D82A9114D800383BDE /* APIManager.swift */; };
 		4D3148462A8F9D8500AB11D3 /* CollectionCharactersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3148452A8F9D8500AB11D3 /* CollectionCharactersCell.swift */; };
-		4D3148482A8FA2B900AB11D3 /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3148472A8FA2B900AB11D3 /* CharactersModel.swift */; };
+		4D3148482A8FA2B900AB11D3 /* CharactersModelElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3148472A8FA2B900AB11D3 /* CharactersModelElement.swift */; };
 		4DBA52B12A8E746500080EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA52B02A8E746500080EEC /* AppDelegate.swift */; };
 		4DBA52B32A8E746500080EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA52B22A8E746500080EEC /* SceneDelegate.swift */; };
 		4DBA52B52A8E746500080EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBA52B42A8E746500080EEC /* ViewController.swift */; };
@@ -20,8 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D1459D82A9114D800383BDE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4D3148452A8F9D8500AB11D3 /* CollectionCharactersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCharactersCell.swift; sourceTree = "<group>"; };
-		4D3148472A8FA2B900AB11D3 /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
+		4D3148472A8FA2B900AB11D3 /* CharactersModelElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModelElement.swift; sourceTree = "<group>"; };
 		4DBA52AD2A8E746500080EEC /* RikAndMortyAPIUIKitSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RikAndMortyAPIUIKitSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DBA52B02A8E746500080EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DBA52B22A8E746500080EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +50,8 @@
 		4D3148422A8F9BC100AB11D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D3148472A8FA2B900AB11D3 /* CharactersModel.swift */,
+				4D3148472A8FA2B900AB11D3 /* CharactersModelElement.swift */,
+				4D1459D82A9114D800383BDE /* APIManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,9 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1459D92A9114D800383BDE /* APIManager.swift in Sources */,
 				4DBA52C82A8E90F600080EEC /* DetailScreenInfoController.swift in Sources */,
 				4DBA52B52A8E746500080EEC /* ViewController.swift in Sources */,
-				4D3148482A8FA2B900AB11D3 /* CharactersModel.swift in Sources */,
+				4D3148482A8FA2B900AB11D3 /* CharactersModelElement.swift in Sources */,
 				4DBA52B12A8E746500080EEC /* AppDelegate.swift in Sources */,
 				4D3148462A8F9D8500AB11D3 /* CollectionCharactersCell.swift in Sources */,
 				4DBA52CA2A8E923A00080EEC /* ModelDetail.swift in Sources */,
