@@ -1,5 +1,5 @@
 //
-//  DetailScreenInfo.swift
+//  DetailScreenInfoController.swift
 //  RikAndMortyAPIUIKitSwiftUI
 //
 //  Created by Валерия Дементьева on 17.08.2023.
@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-struct DetailScreenInfo: View {
+struct DetailScreenInfoController: View {
     @ObservedObject var dataModel = ObserveModelDetail()
     let columns = [GridItem(.flexible())]
     
@@ -126,6 +126,6 @@ struct DetailScreenInfo: View {
 
 struct DetailScreenInfo_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenInfo()
+        DetailScreenInfoController()
     }
 }

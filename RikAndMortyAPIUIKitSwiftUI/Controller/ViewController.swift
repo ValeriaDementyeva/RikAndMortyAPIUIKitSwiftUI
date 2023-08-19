@@ -21,6 +21,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsNavigation()
+        setupHierarchy()
+        setupLayout()
+    }
+    
+    private func settingsNavigation() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Characters"
         let titleAttributes: [NSAttributedString.Key: Any] = [
@@ -29,8 +36,7 @@ class ViewController: UIViewController {
         ]
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes
         navigationController?.navigationBar.barStyle = .black
-        setupHierarchy()
-        setupLayout()
+        navigationController?.navigationBar.tintColor = .white
     }
     
     private func setupHierarchy() {
@@ -81,5 +87,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return CharactersModel.info.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailScreenInfoController = DetailScreenInfoController()
+        
+        let hostingController = UIHostingController(rootView: detailScreenInfoController)
+        
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 }
