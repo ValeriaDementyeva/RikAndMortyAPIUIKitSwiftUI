@@ -36,8 +36,6 @@ class CollectionCharactersCell: UICollectionViewCell {
         return stack
     }()
 
-
-
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)

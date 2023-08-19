@@ -6,27 +6,6 @@
 //
 
 import Foundation
-//class APIManager {
-//static let shared = APIManager()
-//
-//let urlString = "https://rickandmortyapi.com/api/character/1,2"
-//
-//    func getCharacters(){
-//let url = URL(string: urlString)!
-//        let request = URLRequest(url: url)
-//
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            guard let data else {return}
-//            if let characrersDate = try? JSONDecoder().decode(CharactersModelElement.self, from: data){
-//                print("OK")
-//            } else {
-//                print("Error get")
-//            }
-//        }
-//        task.resume()
-//        }
-//    }
-
 
 class APIManager {
     static let shared = APIManager()
@@ -51,7 +30,7 @@ class APIManager {
             do {
                 let characters = try JSONDecoder().decode([CharactersModelElement].self, from: data)
                 print("OK")
-                completion(characters) // Вызовем переданную функцию completion с данными персонажей
+                completion(characters)
             } catch {
                 print("Error decoding: \(error)")
             }

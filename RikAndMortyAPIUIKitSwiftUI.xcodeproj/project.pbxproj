@@ -51,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				4D3148472A8FA2B900AB11D3 /* CharactersModelElement.swift */,
-				4D1459D82A9114D800383BDE /* APIManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -59,6 +58,7 @@
 		4D3148432A8F9BDA00AB11D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D1459D82A9114D800383BDE /* APIManager.swift */,
 				4D3148452A8F9D8500AB11D3 /* CollectionCharactersCell.swift */,
 			);
 			path = View;

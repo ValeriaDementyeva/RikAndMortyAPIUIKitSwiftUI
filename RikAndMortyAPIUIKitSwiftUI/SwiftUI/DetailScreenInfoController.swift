@@ -8,12 +8,14 @@ import Foundation
 import SwiftUI
 
 struct DetailScreenInfoController: View {
+    //MARK: - Properties
     @ObservedObject var dataModel = ObserveModelDetail()
     let columns = [GridItem(.flexible())]
-    
+
     var body: some View {
-        
         ScrollView(.vertical) {
+            //MARK: - VStack with Image and 2 Text
+
             LazyVStack(alignment: .center) {
                 Spacer(minLength: 16)
                 Image("Rick")
@@ -39,7 +41,7 @@ struct DetailScreenInfoController: View {
                     .padding(.horizontal)
                 Spacer(minLength: 24)
                 
-                
+                //MARK: - VGrid with 3 sections
                 LazyVGrid(columns: columns, alignment: .leading) {
                     Section(header: Text("Info").font(.title3).foregroundColor(.white)) {
                         ZStack(){
@@ -64,7 +66,7 @@ struct DetailScreenInfoController: View {
                             }
                             .padding()
                         }
-                    }
+                    }//final section "Info"
                     Section(header: Text("Origin").font(.title3).foregroundColor(.white)) {
                         ZStack(){
                             Rectangle()
@@ -89,7 +91,7 @@ struct DetailScreenInfoController: View {
                             }.frame(maxWidth: .infinity, alignment: .leading)
                                 .padding()
                         }
-                    }
+                    }//final section "Origin"
                     Section(header: Text("Episodes").font(.title3).foregroundColor(.white)) {
                         ForEach(ModelDetail.info, id:\.id) { item in
                             ZStack(){
@@ -115,15 +117,16 @@ struct DetailScreenInfoController: View {
                                 .padding()
                             }
                         }
-                    }
+                    }//final section "Episodes"
                 }
                 .padding()
-            }
-        }
+            }//final LazyVGride
+        }//background scrollview
         .background(Color(red: 0.013, green: 0.048, blue: 0.119))
-    }
-}
+    }//final body
+}//final struct
 
+//MARK: - Previews
 struct DetailScreenInfo_Previews: PreviewProvider {
     static var previews: some View {
         DetailScreenInfoController()
