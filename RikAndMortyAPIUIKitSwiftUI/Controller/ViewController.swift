@@ -28,7 +28,8 @@ class ViewController: UIViewController {
         setupHierarchy()
         setupLayout()
 
-        APIManager.shared.getCharacters { characters in
+        //MARK: - заменить  APIManager2 на нужный
+        APIManager2.shared.getCharacters { characters in
             DispatchQueue.main.async {
                 self.characters = characters
                 self.collectionView.reloadData()
@@ -99,11 +100,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let character = characters[indexPath.item]
         cell.nameLabel.text = character.name
 
-        if let imageURL = URL(string: character.image) {
-            DispatchQueue.global().async {
-                if let imageData = try? Data(contentsOf: imageURL) {
-                    DispatchQueue.main.async {
-                        cell.image.image = UIImage(data: imageData)
+        DispatchQueue.global().async {
+            APIManager2.shared.downloadImage(from: character.image) { image in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        cell.image.image = image
+                    } else {
+                        return
                     }
                 }
             }
@@ -115,6 +118,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         return characters.count
     }
 
+//MARK: - заменить DetailScreenInfoController2 на DetailScreenInfoController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCharacter = characters[indexPath.item]
         let detailScreenInfoController = DetailScreenInfoController2(character: selectedCharacter)
