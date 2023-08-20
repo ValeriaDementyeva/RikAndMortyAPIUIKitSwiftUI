@@ -124,7 +124,7 @@ struct DetailScreenInfoController: View {
         }//background scrollview
         .background(Color(red: 0.013, green: 0.048, blue: 0.119))
     }//final body
-}//final struct
+}//final LazyVGride
 
 //MARK: - Previews
 struct DetailScreenInfo_Previews: PreviewProvider {

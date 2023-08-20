@@ -34,7 +34,7 @@ class ViewController: UIViewController {
                 self.collectionView.reloadData()
                 for character in characters {
                     print("Character name: \(character.name)")
-                    print("Character name: \(character.image)")
+                    print("Character image: \(character.image)")
                 }
             }
         }
@@ -51,14 +51,6 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
-    }
-
-    private func navigationSwiftUiInUikit() {
-        let detailScreenInfoController = DetailScreenInfoController()
-
-        let hostingController = UIHostingController(rootView: detailScreenInfoController)
-
-        navigationController?.pushViewController(hostingController, animated: true)
     }
 
     //MARK: - Hierarchy
@@ -124,7 +116,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationSwiftUiInUikit()
+        let selectedCharacter = characters[indexPath.item]
+        let detailScreenInfoController = DetailScreenInfoController2(character: selectedCharacter)
+
+        let hostingController = UIHostingController(rootView: detailScreenInfoController)
+        navigationController?.pushViewController(hostingController, animated: true)
     }
 }
 
