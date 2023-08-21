@@ -64,7 +64,6 @@ class CollectionCharactersCell: UICollectionViewCell {
         image.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8).isActive = true
         image.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -54).isActive = true
 
-
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.topAnchor.constraint(equalTo: topAnchor,constant: 5).isActive = true
         stack.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 5).isActive = true
