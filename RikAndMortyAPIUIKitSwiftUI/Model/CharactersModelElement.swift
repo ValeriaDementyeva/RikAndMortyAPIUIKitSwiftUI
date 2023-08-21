@@ -2,7 +2,6 @@
 
 import Foundation
 
-
 // MARK: - CharactersModelElement
 struct CharactersModelElement: Codable {
     let id: Int

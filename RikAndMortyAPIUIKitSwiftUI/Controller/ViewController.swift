@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         setupLayout()
 
         //MARK: - заменить  APIManager2 на нужный
-        APIManager2.shared.getCharacters { characters in
+        APIManager.shared.getCharacters { characters in
             DispatchQueue.main.async {
                 self.characters = characters
                 self.collectionView.reloadData()
@@ -101,7 +101,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.nameLabel.text = character.name
 
         DispatchQueue.global().async {
-            APIManager2.shared.downloadImage(from: character.image) { image in
+            APIManager.shared.downloadImage(from: character.image) { image in
                 DispatchQueue.main.async {
                     if let image = image {
                         cell.image.image = image
@@ -118,10 +118,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         return characters.count
     }
 
-//MARK: - заменить DetailScreenInfoController2 на DetailScreenInfoController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCharacter = characters[indexPath.item]
-        let detailScreenInfoController = DetailScreenInfoController2(character: selectedCharacter)
+        let detailScreenInfoController = DetailScreenInfoController(character: selectedCharacter)
 
         let hostingController = UIHostingController(rootView: detailScreenInfoController)
         navigationController?.pushViewController(hostingController, animated: true)
